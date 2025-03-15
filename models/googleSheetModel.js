@@ -4,11 +4,12 @@ const path = require("path");
 require("dotenv").config();
 
 const spreadsheetId = process.env.GOOGLE_SHEET_ID; // Replace with your actual Sheet ID
+const googleCredentials = JSON.parse(Buffer.from(process.env.GOOGLE_CREDENTIALS, "base64").toString("utf-8"));
 
 // Authenticate using credentials.json
 async function getGoogleSheet() {
     const auth = new GoogleAuth({
-        keyFile: path.join(__dirname, "../credentials.json"),
+        credentials: googleCredentials,
         scopes: "https://www.googleapis.com/auth/spreadsheets",
     });
 
