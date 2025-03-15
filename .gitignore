@@ -1,0 +1,4 @@
+/node_modules
+credentials.json
+backend/google-service-account.json
+.env
